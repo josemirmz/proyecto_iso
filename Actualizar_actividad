@@ -1,0 +1,38 @@
+void Actualizar_actividad(std::vector<Actividad>& actividades) {
+    // Mostrar la lista de actividades para que el usuario seleccione una
+    visualizar_act(actividades);
+
+    // Preguntar al usuario qué actividad quiere actualizar
+    std::cout << "¿Qué actividad quieres actualizar? ";
+    size_t seleccion;
+    std::cin >> seleccion;
+
+    // Validar la selección del usuario
+    if (seleccion > 0 && seleccion <= actividades.size()) {
+        // Actualizar los datos de la actividad seleccionada
+        Actividad& seleccionada = actividades[seleccion - 1];
+        std::cout << "Ingresa los nuevos datos para la actividad:" << std::endl;
+        std::cout << "- Nuevo Nombre: ";
+        std::cin >> seleccionada.nombre;
+        std::cout << "- Nueva Temática: ";
+        std::cin >> seleccionada.tematica;
+        std::cout << "- Nueva Ubicación: ";
+        std::cin >> seleccionada.ubicacion;
+        std::cout << "- Nueva Fecha: ";
+        std::cin >> seleccionada.fecha;
+        std::cout << "- Nuevo Aforo: ";
+        std::cin >> seleccionada.aforo;
+        std::cout << "- Nuevo Asistentes: ";
+        std::cin >> seleccionada.asistentes;
+        std::cout << "- Nueva Duración (en horas): ";
+        std::cin >> seleccionada.duracion;
+        std::cout << "- Nuevo Precio (en euros): ";
+        std::cin >> seleccionada.precio;
+        std::cout << "- Nuevo Material necesario: ";
+        std::cin >> seleccionada.material;
+
+        std::cout << "Actividad actualizada correctamente." << std::endl;
+    } else {
+        std::cout << "Selección no válida." << std::endl;
+    }
+}
