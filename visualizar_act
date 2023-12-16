@@ -1,0 +1,30 @@
+void visualizar_act(const std::vector<Actividad>& actividades) {
+    // Mostrar lista de actividades numeradas
+    std::cout << "Lista de actividades:" << std::endl;
+    for (size_t i = 0; i < actividades.size(); ++i) {
+        std::cout << i + 1 << ") " << actividades[i].nombre << std::endl;
+    }
+
+    // Preguntar al usuario qué actividad quiere ver
+    std::cout << "¿Qué actividad quieres ver? ";
+    size_t seleccion;
+    std::cin >> seleccion;
+
+    // Validar la selección del usuario
+    if (seleccion > 0 && seleccion <= actividades.size()) {
+        // Mostrar información de la actividad seleccionada
+        const Actividad& seleccionada = actividades[seleccion - 1];
+        std::cout << "Información de la actividad seleccionada:" << std::endl;
+        std::cout << "- Nombre: " << seleccionada.nombre << std::endl;
+        std::cout << "- Temática: " << seleccionada.tematica << std::endl;
+        std::cout << "- Ubicación: " << seleccionada.ubicacion << std::endl;
+        std::cout << "- Fecha: " << seleccionada.fecha << std::endl;
+        std::cout << "- Aforo: " << seleccionada.aforo << std::endl;
+        std::cout << "- Asistentes: " << seleccionada.asistentes << std::endl;
+        std::cout << "- Duración (en horas): " << seleccionada.duracion << std::endl;
+        std::cout << "- Precio (en euros): " << seleccionada.precio << std::endl;
+        std::cout << "- Material necesario: " << seleccionada.material << std::endl;
+    } else {
+        std::cout << "Selección no válida." << std::endl;
+    }
+}
